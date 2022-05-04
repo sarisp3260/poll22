@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}{% endblock %}</title>
+
+		<link href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css" rel="stylesheet" type="text/css"/>
+		
+        <script src="https://cdn.tailwindcss.com"></script>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+	</head>
+	<body class="">
+		<nav class="navbar fixed inset-x-0 bottom-0 left-0 w-full h-fit py-3 bg-slate-800 text-slate-400 z-20 md:top-0 md:h-full md:w-32" role="navigation">
+			<div class="container flex flex-row px-5 h-full w-full justify-between md:flex-col md:px-0">
+				
+				<div class="navbar-header">
+					<a class="navbar-brand font-bold" href="{% url 'home' %}">Poll App</a>
+				</div>
+
+				<div class="flex flex-row gap-5 md:flex-col md:gap-10">
+					<a href="{% url 'home' %}" class="hidden rotate md:block hover:text-white flex items-center">Home <i class="fa-solid fa-house text-xl ml-3"></i></a>
+					<a href="{% url 'create' %}" class="hidden md:block hover:text-white flex items-center">Create <i class="fa-solid fa-square-plus text-xl ml-3"></i></a>
+
+					<a href="{% url 'home' %}" class="block md:hidden"><i class="fa-solid fa-house text-3xl"></i></a>
+					<a href="{% url 'create' %}" class="block md:hidden"><i class="fa-solid fa-square-plus text-3xl"></i></a>
+				</div>
+
+				<div class="footer-nav hidden md:block">
+					Poll 2022 &copy;
+				</div>
+			</div>
+		</nav>
+
+		<div class="container mb-20 w-full h-screen flex items-center justify-center md:w-11/12 md:ml-40">
+			{% block main %}{% endblock %}
+		</div>
+
+	</body>
+</html>

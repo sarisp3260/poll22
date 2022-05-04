@@ -1,0 +1,53 @@
+{% extends "poll/base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}Create Poll{% endblock %}
+
+{% block main %}
+<div class="">
+    <div class="">
+        <div class=" p-6 rounded-md bg-slate-800 text-slate-400">
+            <div class="">
+                <h3 class="text-center text-2xl font-semibold pb-2">Create A New Poll</h3>
+            </div>
+                
+            <form class="" method="POST">
+                {% csrf_token %}
+                <div class="panel-body font-medium text-lg">
+                    
+                    <div class="flex flex-col gap-4 pb-2">
+                        <label for="question">Enter Poll Question</label>
+                        {% render_field form.question class="textarea textarea-ghost border-2 border-white/10" rows="3" %}
+                    </div>
+                 
+                    
+                    <div class="options flex flex-col gap-4 mt-3 lg:flex-row">
+                        <div class="">
+                            <label for="option1">Option 1</label>
+                            {% render_field form.option_one class="input input-bordered input-ghost border-2 border-white/10 w-full max-w-xs" %}
+                        </div>
+                        
+                        <div class="">
+                            <label for="option2">Option 2</label>
+                            {% render_field form.option_two class="input input-bordered input-ghost border-2 border-white/10 w-full max-w-xs" %}
+                        </div>
+                    
+                        <div class="">
+                            <label for="option3">Option 3</label>
+                            {% render_field form.option_three class="input input-bordered input-ghost border-2 border-white/10  w-full max-w-xs" %}
+                        </div>
+                    </div>
+                    
+                    
+                        
+                    <div class="">
+                        <button type="submit" class="btn btn-gost bg-slate-600 mt-5 w-full">Submit</button>
+                    </div>
+                    
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
